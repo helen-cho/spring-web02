@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.dao.ShopDAO;
 import com.example.domain.ShopVO;
+import com.example.service.ShopService;
 
 @RestController
 @RequestMapping("/shop")
@@ -15,8 +16,11 @@ public class ShopRestController {
 	@Autowired
 	ShopDAO dao;
 	
+	@Autowired
+	ShopService service;
+	
 	@PostMapping("/insert")
 	public void insert(@RequestBody ShopVO vo) {
-		dao.insert(vo);
+		service.insert(vo);
 	}
 }

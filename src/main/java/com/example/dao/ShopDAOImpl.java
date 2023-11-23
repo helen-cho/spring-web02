@@ -16,4 +16,9 @@ public class ShopDAOImpl implements ShopDAO{
 	public void insert(ShopVO vo) {
 		session.insert(namespace + ".insert", vo);
 	}
+
+	@Override
+	public int check(String productId) {
+		return session.selectOne(namespace + ".check", productId);
+	}
 }

@@ -5,4 +5,7 @@
 		insert into shop(productId, title, image, lprice, maker)
 		values(#{productId}, #{title}, #{image}, #{lprice}, #{maker});
 	</insert>
+	<select id="check" resultType="int">
+		select count(*) from shop where productId=#{productId}
+	</select>
 </mapper>

@@ -45,6 +45,17 @@
 		const maker=tr.find(".maker").text();
 		const data={productId, image, title, lprice, maker};
 		console.log(data);
+		if(confirm("저장하실래요?")){
+			$.ajax({
+				type:"post",
+				url:"/shop/insert",
+				data: JSON.stringify(data),
+				contentType:"application/JSON",
+				success:function(){
+					alert("저장완료!");
+				}
+			});
+		}
 	});
 	
 	$(frm).on("submit", function(e){
