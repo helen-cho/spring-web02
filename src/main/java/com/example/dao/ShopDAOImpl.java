@@ -51,4 +51,9 @@ public class ShopDAOImpl implements ShopDAO{
 	public void update(ShopVO vo) {
 		session.update(namespace + ".update", vo);
 	}
+
+	@Override
+	public void image(ShopVO vo) {
+		session.update(namespace + ".image", vo);
+	}
 }
