@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.ShopMapper">
+	<delete id="delete_favorites">
+		delete from favorites
+		where uid=#{uid} and pid=#{pid}
+	</delete>
+	<insert id="insert_favorites">
+		insert into favorites(uid, pid)
+		values(#{uid}, #{pid})
+	</insert>
 	<update id="viewcnt">
 		update shop
 		set viewcnt=viewcnt + 1
@@ -23,7 +31,7 @@
 	</select>
 	<select id="info" resultType="hashmap">
 		select *,date_format(regdate, '%Y-%m-%d %T') fmtdate, format(lprice,0) fmtprice,
-		(select count(*) from favorits where uid=#{uid} and pid=#{pid}) ucnt
+		(select count(*) from favorites where uid=#{uid} and pid=#{pid}) ucnt
 		from shop
 		where pid=#{pid}
 	</select>

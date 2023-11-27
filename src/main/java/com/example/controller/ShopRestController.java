@@ -27,6 +27,17 @@ public class ShopRestController {
 	@Autowired
 	ShopService service;
 	
+	@GetMapping("/insert/favorites")
+	public void insert(int pid, String uid) {
+		dao.insertFavorites(pid, uid);
+	}
+	
+	@GetMapping("/delete/favorites")
+	public void delete(int pid, String uid) {
+		System.out.println("................" + pid + "," + uid);
+		dao.deleteFavorites(pid, uid);
+	}
+	
 	@PostMapping("/image")
 	public void image(ShopVO vo, MultipartHttpServletRequest multi) {
 		MultipartFile file=multi.getFile("file");

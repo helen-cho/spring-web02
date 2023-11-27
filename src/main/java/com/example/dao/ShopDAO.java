@@ -15,4 +15,6 @@ public interface ShopDAO {
 	public void image(ShopVO vo);
 	public void viewcnt(int pid);
 	public HashMap<String, Object> read(int pid, String uid);
+	public void insertFavorites(int pid, String uid);
+	public void deleteFavorites(int pid, String uid);
 }
