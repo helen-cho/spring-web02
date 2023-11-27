@@ -59,6 +59,20 @@ public class ShopServiceImpl implements ShopService{
 		dao.viewcnt(pid);
 		return dao.read(pid, uid);
 	}
+
+	@Transactional
+	@Override
+	public void insertFavorites(int pid, String uid) {
+		dao.insertFavorites(pid, uid);
+		dao.updateFavorites(pid, 1);
+	}
+
+	@Transactional
+	@Override
+	public void deleteFavorites(int pid, String uid) {
+		dao.deleteFavorites(pid, uid);
+		dao.updateFavorites(pid, -1);
+	}
 }
 
 
