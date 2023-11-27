@@ -61,4 +61,18 @@ public class ShopDAOImpl implements ShopDAO{
 	public void viewcnt(int pid) {
 		session.update(namespace + ".viewcnt", pid);
 	}
+
+	@Override
+	public HashMap<String, Object> read(int pid, String uid) {
+		HashMap<String,Object> map=new HashMap<>();
+		map.put("pid", pid);
+		map.put("uid", uid);
+		return session.selectOne(namespace + ".info", map);
+	}
 }
+
+
+
+
+
+

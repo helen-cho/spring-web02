@@ -21,6 +21,12 @@
 		from shop
 		where pid=#{pid}
 	</select>
+	<select id="info" resultType="hashmap">
+		select *,date_format(regdate, '%Y-%m-%d %T') fmtdate, format(lprice,0) fmtprice,
+		(select count(*) from favorits where uid=#{uid} and pid=#{pid}) ucnt
+		from shop
+		where pid=#{pid}
+	</select>
 	<delete id="delete">
 		delete from shop where pid=#{pid}
 	</delete>

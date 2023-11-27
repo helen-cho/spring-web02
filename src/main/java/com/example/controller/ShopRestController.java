@@ -68,7 +68,16 @@ public class ShopRestController {
 	}
 	
 	@GetMapping("/info/{pid}")
-	public HashMap<String,Object> info(@PathVariable int pid){
-		return service.read(pid);
+	public HashMap<String,Object> info(@PathVariable int pid, String uid){
+		return service.read(pid, uid);
 	}
 }
+
+
+
+
+
+
+
+
+

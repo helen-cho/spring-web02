@@ -55,9 +55,9 @@ public class ShopServiceImpl implements ShopService{
 
 	@Transactional
 	@Override
-	public HashMap<String, Object> read(int pid) {
+	public HashMap<String, Object> read(int pid, String uid) {
 		dao.viewcnt(pid);
-		return dao.read(pid);
+		return dao.read(pid, uid);
 	}
 }
 
