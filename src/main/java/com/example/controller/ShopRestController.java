@@ -66,4 +66,9 @@ public class ShopRestController {
 	public HashMap<String,Object> read(@PathVariable int pid){
 		return dao.read(pid);
 	}
+	
+	@GetMapping("/info/{pid}")
+	public HashMap<String,Object> info(@PathVariable int pid){
+		return service.read(pid);
+	}
 }

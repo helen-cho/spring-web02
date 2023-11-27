@@ -56,4 +56,9 @@ public class ShopDAOImpl implements ShopDAO{
 	public void image(ShopVO vo) {
 		session.update(namespace + ".image", vo);
 	}
+
+	@Override
+	public void viewcnt(int pid) {
+		session.update(namespace + ".viewcnt", pid);
+	}
 }
