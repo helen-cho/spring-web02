@@ -41,6 +41,11 @@ public class ReviewRestController {
 		map.put("list", dao.list(pid, page, size));
 		return map;
 	}
+	
+	@PostMapping("/update")
+	public void update(@RequestBody ReviewVO vo) {
+		dao.update(vo);
+	}
 }
 
 

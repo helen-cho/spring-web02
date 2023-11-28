@@ -10,4 +10,5 @@ public interface ReviewDAO {
 	public void delete(int cid);
 	public void updateReviewcnt(int pid, int amount);
 	public ReviewVO read(int cid);
+	public void update(ReviewVO vo);
 }

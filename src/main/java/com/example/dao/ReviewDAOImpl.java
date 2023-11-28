@@ -51,6 +51,11 @@ public class ReviewDAOImpl implements ReviewDAO{
 	public ReviewVO read(int cid) {
 		return session.selectOne(namespace + ".read", cid);
 	}
+
+	@Override
+	public void update(ReviewVO vo) {
+		session.update(namespace + ".update", vo);
+	}
 }
 
 
