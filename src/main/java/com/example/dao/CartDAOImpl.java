@@ -6,6 +6,8 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.example.domain.CartVO;
 import com.example.domain.UserVO;
 
 @Repository
@@ -25,4 +27,23 @@ public class CartDAOImpl implements CartDAO{
 		return session.selectOne(namespace + ".total", uid);
 	}
 
+	@Override
+	public void insert(CartVO vo) {
+		session.insert(namespace + ".insert", vo);
+	}
+
+	@Override
+	public void delete(int cid) {
+		session.delete(namespace + ".delete", cid);
+	}
+
+	@Override
+	public int check(CartVO vo) {
+		return session.selectOne(namespace + ".check", vo);
+	}
+
+	@Override
+	public void update(CartVO vo) {
+		session.update(namespace + ".update", vo);
+	}
 }
