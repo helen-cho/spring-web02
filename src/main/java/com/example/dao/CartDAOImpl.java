@@ -46,4 +46,14 @@ public class CartDAOImpl implements CartDAO{
 	public void update(CartVO vo) {
 		session.update(namespace + ".update", vo);
 	}
+
+	@Override
+	public void updateQnt(CartVO vo) {
+		session.update(namespace + ".update_qnt", vo);
+	}
+
+	@Override
+	public String sum(String uid) {
+		return session.selectOne(namespace + ".sum", uid);
+	}
 }

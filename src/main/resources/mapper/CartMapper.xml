@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.CartMapper">
+	<select id="sum" resultType="string">
+		select format(sum(lprice*qnt),0) as fmtsum
+		from view_cart
+		where uid=#{uid};
+	</select>
+	<update id="update_qnt">
+		update cart
+		set qnt=#{qnt}
+		where cid=#{cid}
+	</update>
 	<update id="update">
 		update cart
 		set qnt = qnt + #{qnt}
@@ -21,7 +31,7 @@
 		values(#{pid}, #{uid})
 	</insert>
     <select id="list" resultType="hashmap">
-        select * 
+        select *, (lprice*qnt) as sum, format(lprice*qnt, 0) as fmtsum
         from view_cart
         where uid=#{uid}
 		order by regdate desc

@@ -18,6 +18,11 @@ public class UserRestController {
 	@Autowired
 	UserDAO dao;
 	
+	@PostMapping("/update")
+	public void update(@RequestBody UserVO vo) {
+		dao.update(vo);
+	}
+	
 	@GetMapping("/read")
 	public HashMap<String, Object> read(String uid){
 		return dao.read(uid);

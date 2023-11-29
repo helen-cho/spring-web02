@@ -12,4 +12,6 @@ public interface CartDAO {
 	public void delete(int cid);
 	public int check(CartVO vo);
 	public void update(CartVO vo);
+	public void updateQnt(CartVO vo);
+	public String sum(String uid);
 }

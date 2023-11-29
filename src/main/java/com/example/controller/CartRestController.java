@@ -35,6 +35,7 @@ public class CartRestController {
 		HashMap<String,Object> map=new HashMap<String,Object>();
 		map.put("list", dao.list(vo));
 		map.put("total", dao.total(vo.getUid()));
+		map.put("sum", dao.sum(vo.getUid()));
 		return map;
 	}
 	
@@ -42,6 +43,12 @@ public class CartRestController {
 	public void insert(@RequestBody CartVO vo) {
 		service.insert(vo);
 	}
+	
+	@PostMapping("/update/qnt")
+	public void updateQnt(@RequestBody CartVO vo) {
+		dao.updateQnt(vo);
+	}
+	
 }
 
 
