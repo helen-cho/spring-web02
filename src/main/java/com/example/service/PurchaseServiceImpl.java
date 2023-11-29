@@ -18,11 +18,12 @@ public class PurchaseServiceImpl implements PurchaseService{
 	@Transactional
 	@Override
 	public void insertPurchase(PurchaseVO vo) {
-		dao.insertPurchase(vo);
+		dao.insertPurchase(vo); //구매정보입력
 		List<OrderVO> orders=vo.getOrders();
+		
 		for(OrderVO order:orders) {
 			order.setOid(vo.getOid());
-			dao.insertOrder(order);
+			dao.insertOrder(order);//구매상품들입력
 		}
 	}
 
