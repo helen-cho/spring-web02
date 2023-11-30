@@ -10,8 +10,15 @@ public class PurchaseVO {
 	private String address1;
 	private String address2;
 	private int sum;
+	private int status;
 	private List<OrderVO> orders;
 	
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
 	public String getOid() {
 		return oid;
 	}

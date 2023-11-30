@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.PurchaseMapper">
+	<update id="update_status">
+		update purchase
+		set status=#{status}
+		where oid=#{oid}
+	</update>
 	<select id="list_admin" resultType="hashmap">
 		select *
 		from view_purchase

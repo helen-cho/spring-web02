@@ -17,4 +17,5 @@ public interface PurchaseDAO {
 	
 	public List<HashMap<String,Object>> listAdmin(QueryVO vo);
 	public int totalAdmin(QueryVO vo);
+	public void updateStatus(PurchaseVO vo);
 }

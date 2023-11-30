@@ -56,6 +56,11 @@ public class PurchaseRestController {
 		map.put("total", dao.totalAdmin(vo));
 		return map;
 	}
+	
+	@PostMapping("/update/status")
+	public void updateStatus(@RequestBody PurchaseVO vo) {
+		dao.updateStatus(vo);
+	}
 }
 
 

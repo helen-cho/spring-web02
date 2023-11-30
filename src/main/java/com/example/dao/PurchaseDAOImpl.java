@@ -54,4 +54,9 @@ public class PurchaseDAOImpl implements PurchaseDAO{
 	public int totalAdmin(QueryVO vo) {
 		return session.selectOne(namespace + ".total_admin", vo);
 	}
+
+	@Override
+	public void updateStatus(PurchaseVO vo) {
+		session.update(namespace + ".update_status", vo);
+	}
 }
